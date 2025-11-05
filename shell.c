@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "commands.h"
 
 #define LINEBUF 1024
 
@@ -9,17 +10,6 @@ struct Command {
   char *name;
   void (*func)(void);
 };
-
-void cmd_exit() {
-  printf("baii baii~🐇\n");
-  exit(0);
-}
-
-void cmd_clear() { system("cls"); }
-
-void cmd_hello() {
-  printf("HEHEEE~ HELLOOWWW THEREEE MY LITTE BUNNBUNNNN🐰\n");
-}
 
 void trim(char *s) {
   // change '\n' into '\0' in the end of line so it's easier to handle
@@ -64,6 +54,18 @@ void handleCommand(char *cmd, struct Command *commands, size_t len) {
   if (!found)
     printf("heh~ that '%s' isn't inside my dict, bunny. try to use '/help'\n",
            cmd);
+  // if (strcmp(cmd, "exit") == 0) {
+  //   printf("baii baii~🐇");
+  //   exit(0);
+  // } else if (strcmp(cmd, "clear") == 0) {
+  //   system("cls");
+  // } else if (strcmp(cmd, "hello") == 0) {
+  //   printf("HEHEEE~ HELLOOWWW THEREEE MY LITTE BUNNBUNNNN🐰\n");
+  // } else {
+  //   printf("heh~ that '%s' isn't inside my dict, bunny. try to use
+  //   '/help'\n",
+  //          cmd);
+  // }
 }
 
 int main() {

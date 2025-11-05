@@ -1,2 +1,2 @@
 shell.exe: shell.c
-	gcc shell.c -o shell.exe
+	gcc shell.c commands.c -o shell.exe
